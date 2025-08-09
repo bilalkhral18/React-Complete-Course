@@ -1,0 +1,25 @@
+.MainHeading {
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.998);
+  font-weight: 800;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+}
+.Todo-items {
+  text-align: left;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+.kg-button {
+  min-width: 80px;
+}
+.kg-row {
+  margin: 10px 5px;
+}
