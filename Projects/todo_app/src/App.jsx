@@ -1,16 +1,18 @@
 import Heading from "./components/Heading";
 import Enter_Todo from "./components/Enter_Todo";
-import TodoItem1 from "./components/TodoItem1";
-import TodoItem2 from "./components/TodoItem2";
+import TodoItems from "./components/TodoItems";
 import "./App.css";
 function App() {
+  let todoItems = [
+    { id: 1, name: "Buy Milk", date: "4/6/2023" },
+    { id: 2, name: "Go To College", date: "4/6/2023" },
+  ];
   return (
     <center className="todo-app">
       <Heading />
       <Enter_Todo />
       <div className="Todo-items">
-        <TodoItem1 />
-        <TodoItem2 />
+        <TodoItems items={todoItems} />
       </div>
     </center>
   );
