@@ -1,0 +1,14 @@
+.app_container {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-container {
+  width: 20%;
+  min-height: 70%;
+  border: 1px solid rgb(221, 205, 205);
+  border-radius: 5px;
+  background-color: white;
+}
