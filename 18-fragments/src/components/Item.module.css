@@ -1,6 +1,9 @@
-.kg-item {
-  background-color: aquamarine;
-}
+/* .kg-item {
+  /* background-color: aquamarine; */
+
 .kg-span {
   color: orangered;
+}
+.button {
+  float: right;
 }
