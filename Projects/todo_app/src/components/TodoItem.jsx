@@ -1,5 +1,6 @@
 import styles from "./TodoItem.module.css";
-function TodoItem({ item }) {
+import { FaDeleteLeft } from "react-icons/fa6";
+function TodoItem({ item, handleDeleteItem }) {
   return (
     <div className={`row ${styles["kg-row"]}`}>
       <div className="col-6">{item.name}</div>
@@ -8,8 +9,9 @@ function TodoItem({ item }) {
         <button
           type="button"
           className={`btn btn-danger ${styles["kg-button"]}`}
+          onClick={() => handleDeleteItem(item.name)}
         >
-          Delete
+          <FaDeleteLeft />
         </button>
       </div>
     </div>

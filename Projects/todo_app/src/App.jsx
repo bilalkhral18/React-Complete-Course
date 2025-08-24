@@ -1,18 +1,25 @@
 import Heading from "./components/Heading";
 import Enter_Todo from "./components/Enter_Todo";
 import TodoItems from "./components/TodoItems";
+import ErrorMessage from "./components/ErrorMessage";
+import { useState } from "react";
 import "./App.css";
 function App() {
-  let todoItems = [
-    { id: 1, name: "Buy Milk", date: "4/6/2023" },
-    { id: 2, name: "Go To College", date: "4/6/2023" },
-  ];
+  const [todoItems, setTodoItems] = useState([]);
+  const handleFormSubmit = (itemname, itemdate) => {
+    setTodoItems([...todoItems, { name: itemname, date: itemdate }]);
+  };
+  const handleDeleteItem = (itemname) => {
+    let newtodoitems = todoItems.filter((item) => item.name !== itemname);
+    setTodoItems(newtodoitems);
+  };
   return (
     <center className="todo-app">
       <Heading />
-      <Enter_Todo />
+      <Enter_Todo handleFormSubmit={handleFormSubmit} />
       <div className="Todo-items">
-        <TodoItems items={todoItems} />
+        <ErrorMessage todoItems={todoItems} />
+        <TodoItems items={todoItems} handleDeleteItem={handleDeleteItem} />
       </div>
     </center>
   );
