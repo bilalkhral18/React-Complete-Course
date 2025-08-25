@@ -7,11 +7,10 @@ import "./App.css";
 function App() {
   const [todoItems, setTodoItems] = useState([]);
   const handleFormSubmit = (itemname, itemdate) => {
-    setTodoItems([...todoItems, { name: itemname, date: itemdate }]);
+    setTodoItems((currval) => [...currval, { name: itemname, date: itemdate }]);
   };
   const handleDeleteItem = (itemname) => {
-    let newtodoitems = todoItems.filter((item) => item.name !== itemname);
-    setTodoItems(newtodoitems);
+    setTodoItems((currval) => currval.filter((item) => item.name !== itemname));
   };
   return (
     <center className="todo-app">

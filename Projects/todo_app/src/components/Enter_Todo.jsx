@@ -1,23 +1,20 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { IoMdAddCircle } from "react-icons/io";
 import styles from "./Enter_Todo.module.css";
 function Enter_Todo({ handleFormSubmit }) {
-  const [todoname, settodoname] = useState("");
-  const [tododate, settododate] = useState("");
-  const handletodoName = (event) => {
-    settodoname(event.target.value);
-  };
-  const handletododate = (event) => {
-    settododate(event.target.value);
-  };
-  const onSubmitHandle = () => {
+  const todoNameRef = useRef();
+  const todoDateRef = useRef();
+  const onSubmitHandle = (event) => {
+    event.preventDefault();
+    const todoname = todoNameRef.current.value;
+    const tododate = todoDateRef.current.value;
     handleFormSubmit(todoname, tododate);
-    settodoname("");
-    settododate("");
+    todoNameRef.current.value = "";
+    todoDateRef.current.value = "";
   };
   return (
     <div className="container text-container">
-      <div className={`row ${styles["kg-row"]}`}>
+      <form onSubmit={onSubmitHandle} className={`row ${styles["kg-row"]}`}>
         <div className="col-6">
           <input
             type="text"
@@ -25,8 +22,7 @@ function Enter_Todo({ handleFormSubmit }) {
             placeholder="Enter Todo Here"
             className={styles.input}
             required
-            value={todoname}
-            onChange={(event) => handletodoName(event)}
+            ref={todoNameRef}
           />
         </div>
         <div className="col-4">
@@ -35,20 +31,18 @@ function Enter_Todo({ handleFormSubmit }) {
             name="due_date"
             className={styles.input}
             required
-            value={tododate}
-            onChange={(event) => handletododate(event)}
+            ref={todoDateRef}
           />
         </div>
         <div className="col-2">
           <button
-            type="button"
+            type="submit"
             className={`btn btn-success ${styles["kg-button"]}`}
-            onClick={onSubmitHandle}
           >
             <IoMdAddCircle className={styles.addIcon} />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
