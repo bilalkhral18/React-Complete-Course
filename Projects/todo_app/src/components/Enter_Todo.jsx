@@ -1,16 +1,16 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { IoMdAddCircle } from "react-icons/io";
 import styles from "./Enter_Todo.module.css";
 function Enter_Todo({ handleFormSubmit }) {
-  const todoNameRef = useRef();
-  const todoDateRef = useRef();
+  const tododateElement = useRef();
+  const todonameElement = useRef();
   const onSubmitHandle = (event) => {
     event.preventDefault();
-    const todoname = todoNameRef.current.value;
-    const tododate = todoDateRef.current.value;
+    const todoname = todonameElement.current.value;
+    const tododate = tododateElement.current.value;
     handleFormSubmit(todoname, tododate);
-    todoNameRef.current.value = "";
-    todoDateRef.current.value = "";
+    todonameElement.current.value = "";
+    tododateElement.current.value = "";
   };
   return (
     <div className="container text-container">
@@ -22,7 +22,7 @@ function Enter_Todo({ handleFormSubmit }) {
             placeholder="Enter Todo Here"
             className={styles.input}
             required
-            ref={todoNameRef}
+            ref={todonameElement}
           />
         </div>
         <div className="col-4">
@@ -31,7 +31,7 @@ function Enter_Todo({ handleFormSubmit }) {
             name="due_date"
             className={styles.input}
             required
-            ref={todoDateRef}
+            ref={tododateElement}
           />
         </div>
         <div className="col-2">
