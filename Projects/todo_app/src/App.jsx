@@ -8,6 +8,8 @@ function App() {
   const [todoItems, setTodoItems] = useState([]);
   const handleFormSubmit = (itemname, itemdate) => {
     setTodoItems((currval) => [...currval, { name: itemname, date: itemdate }]);
+    // const newtodoitems = [...todoItems, { name: itemname, date: itemdate }];
+    // setTodoItems(newtodoitems);
   };
   const handleDeleteItem = (itemname) => {
     setTodoItems((currval) => currval.filter((item) => item.name !== itemname));
