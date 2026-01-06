@@ -6,7 +6,7 @@ function FoodItems({ items }) {
     setActiveItems((prev) => [...prev, index]);
   };
   return (
-    <ul className="list-group">
+    <ul classNameName="list-group">
       {items.map((item, index) => (
         <Item
           key={index}

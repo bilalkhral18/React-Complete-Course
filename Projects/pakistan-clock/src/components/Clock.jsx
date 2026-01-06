@@ -3,9 +3,9 @@ function Clock() {
     timeZone: "Asia/Karachi",
   });
   return (
-    <div className="content-container">
+    <div classNameName="content-container">
       <p>This is the clock that shows the time in Pakistan at all time.</p>
-      <div className="current_time">
+      <div classNameName="current_time">
         <span>This is the current time:</span>
         <span>{currentTime}</span>
       </div>

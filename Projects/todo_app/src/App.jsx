@@ -15,10 +15,10 @@ function App() {
     setTodoItems((currval) => currval.filter((item) => item.name !== itemname));
   };
   return (
-    <center className="todo-app">
+    <center classNameName="todo-app">
       <Heading />
       <Enter_Todo handleFormSubmit={handleFormSubmit} />
-      <div className="Todo-items">
+      <div classNameName="Todo-items">
         <ErrorMessage todoItems={todoItems} />
         <TodoItems items={todoItems} handleDeleteItem={handleDeleteItem} />
       </div>

@@ -25,3 +25,10 @@
   margin-left: 2rem;
   margin-top: 1rem;
 }
+.tag-btn {
+  margin-right: 0.5rem;
+  border-radius: 10px;
+}
+.reactions {
+  margin-top: 15px;
+}

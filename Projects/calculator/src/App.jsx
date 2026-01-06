@@ -35,8 +35,8 @@ function App() {
     ".",
   ];
   return (
-    <center className={`${styles["app_container"]}`}>
-      <div className={`${styles["content-container"]}`}>
+    <center classNameName={`${styles["app_container"]}`}>
+      <div classNameName={`${styles["content-container"]}`}>
         <Display input={input} />
         <Buttons
           buttonsarr={buttonsArr}

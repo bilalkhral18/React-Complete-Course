@@ -13,33 +13,33 @@ function Enter_Todo({ handleFormSubmit }) {
     tododateElement.current.value = "";
   };
   return (
-    <div className="container text-container">
-      <form onSubmit={onSubmitHandle} className={`row ${styles["kg-row"]}`}>
-        <div className="col-6">
+    <div classNameName="container text-container">
+      <form onSubmit={onSubmitHandle} classNameName={`row ${styles["kg-row"]}`}>
+        <div classNameName="col-6">
           <input
             type="text"
             name="todo_type"
             placeholder="Enter Todo Here"
-            className={styles.input}
+            classNameName={styles.input}
             required
             ref={todonameElement}
           />
         </div>
-        <div className="col-4">
+        <div classNameName="col-4">
           <input
             type="date"
             name="due_date"
-            className={styles.input}
+            classNameName={styles.input}
             required
             ref={tododateElement}
           />
         </div>
-        <div className="col-2">
+        <div classNameName="col-2">
           <button
             type="submit"
-            className={`btn btn-success ${styles["kg-button"]}`}
+            classNameName={`btn btn-success ${styles["kg-button"]}`}
           >
-            <IoMdAddCircle className={styles.addIcon} />
+            <IoMdAddCircle classNameName={styles.addIcon} />
           </button>
         </div>
       </form>

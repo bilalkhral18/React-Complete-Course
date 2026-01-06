@@ -2,21 +2,21 @@ import Heading from "./components/Heading";
 import Enter_Todo from "./components/Enter_Todo";
 import TodoItems from "./components/TodoItems";
 import ErrorMessage from "./components/ErrorMessage";
-import ContextProvider from "./context/TodoItems_store";
-
-import "./App.css";
+import { useState } from "react";
+import TodoItemsContext from "./context/TodoItemsContext";
+import TodoItemsContextProvider from "./context/TodoItemsContext";
 function App() {
   return (
-    <ContextProvider>
-      <center className="todo-app">
-        <Heading />
+    <center classNameName="todo-app">
+      <Heading />
+      <TodoItemsContextProvider>
         <Enter_Todo />
-        <div className="Todo-items">
+        <div classNameName="Todo-items">
           <ErrorMessage />
           <TodoItems />
         </div>
-      </center>
-    </ContextProvider>
+      </TodoItemsContextProvider>
+    </center>
   );
 }
 

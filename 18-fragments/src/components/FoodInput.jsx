@@ -4,7 +4,7 @@ function FoodInput({ handleOnKeyDown }) {
     <input
       type="text"
       placeholder="Enter food item here"
-      className={`${styles.foodinput}`}
+      classNameName={`${styles.foodinput}`}
       onKeyDown={handleOnKeyDown}
     />
   );

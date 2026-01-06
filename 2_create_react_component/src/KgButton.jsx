@@ -1,7 +1,7 @@
 function KgButton() {
   return (
-    <button className="kg-button">
-      <span className="kg-button-text">Like This Video</span>
+    <button classNameName="kg-button">
+      <span classNameName="kg-button-text">Like This Video</span>
     </button>
   );
 }

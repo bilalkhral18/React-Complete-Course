@@ -2,12 +2,14 @@ import styles from "./Item.module.css";
 function Item({ item, bought, handleBuy }) {
   return (
     <li
-      className={`list-group-item ${styles["kg-item"]} ${bought && "active"}`}
+      classNameName={`list-group-item ${styles["kg-item"]} ${
+        bought && "active"
+      }`}
     >
-      <span className={styles["kg-span"]}>{item}</span>
+      <span classNameName={styles["kg-span"]}>{item}</span>
       <button
         type="button"
-        className={`btn btn-info ${styles.button}`}
+        classNameName={`btn btn-info ${styles.button}`}
         onClick={handleBuy}
       >
         Buy
