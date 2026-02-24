@@ -8,10 +8,11 @@ const PostList = () => {
   const { postlist, addinitialpost } = useContext(PostListStore);
   const [spinner, setspinner] = useState(false);
   useEffect(() => {
+    if (postlist.length > 0) return;
     const controller = new AbortController();
     const signal = controller.signal;
     setspinner(true);
-    fetch("https://dummyjson.com/posts", { signal })
+    fetch("https://dummyjson.com/posts" /*{ signal }*/)
       .then((res) => res.json())
       .then((data) => {
         addinitialpost(data.posts);

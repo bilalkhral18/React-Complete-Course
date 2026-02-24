@@ -1,4 +1,4 @@
-import { act, createContext, useReducer } from "react";
+import { createContext, useCallback, useReducer } from "react";
 
 export const PostListStore = createContext(null);
 const postListReducer = (currpostlist, action) => {
@@ -17,6 +17,7 @@ const postListReducer = (currpostlist, action) => {
   return currpostlist;
 };
 const PostListStoreProvider = ({ children }) => {
+  const [postlist, dispatch] = useReducer(postListReducer, []);
   const addinitialpost = (posts) => {
     dispatch({
       type: "ADD_INITIAL_POST",
@@ -29,11 +30,14 @@ const PostListStoreProvider = ({ children }) => {
       payload: { id, userId, title, body, reactions, tags },
     });
   };
-  const deletepost = (postId) => {
-    console.log(postId);
-    dispatch({ type: "DELETE_POST", payload: postId });
-  };
-  const [postlist, dispatch] = useReducer(postListReducer, []);
+  const deletepost = useCallback(
+    (postId) => {
+      console.log(postId);
+      console.log("function repaint");
+      dispatch({ type: "DELETE_POST", payload: postId });
+    },
+    [dispatch],
+  );
   return (
     <PostListStore.Provider
       value={{ postlist, deletepost, addpost, addinitialpost }}

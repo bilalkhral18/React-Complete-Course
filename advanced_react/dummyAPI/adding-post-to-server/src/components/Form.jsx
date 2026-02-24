@@ -31,18 +31,22 @@ const Form = ({ activeoption }) => {
   };
   const handleFormData = (event) => {
     event.preventDefault();
-    let id = Math.floor(Math.random() * 10000);
-    addpost(
-      id,
-      userId,
-      title,
-      body,
-      {
-        likes: Number(reactions),
-        dislikes: 0,
-      },
-      tags,
-    );
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId,
+        title,
+        body,
+        reactions: {
+          likes: Number(reactions),
+          dislikes: 0,
+        },
+        tags,
+      }),
+    })
+      .then((res) => res.json())
+      .then((resObj) => addpost(resObj));
     setuserId("");
     setTitle("");
     setContent("");
