@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import Form from "./components/Form";
+import Form from "./components/CreatePost";
 import PostList from "./components/PostList";
 import PostListStoreProvider from "./context/Post-list-store";
 import { useState } from "react";

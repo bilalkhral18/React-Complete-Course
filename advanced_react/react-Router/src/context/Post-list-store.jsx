@@ -2,8 +2,8 @@ import {
   createContext,
   useCallback,
   useReducer,
-  useState,
-  useEffect,
+  /*useState,
+  useEffect,*/
 } from "react";
 
 export const PostListStore = createContext(null);
@@ -24,13 +24,13 @@ const postListReducer = (currpostlist, action) => {
 };
 const PostListStoreProvider = ({ children }) => {
   const [postlist, dispatch] = useReducer(postListReducer, []);
-  const [spinner, setspinner] = useState(false);
-  const addinitialpost = (posts) => {
-    dispatch({
-      type: "ADD_INITIAL_POST",
-      payload: posts,
-    });
-  };
+  // const [spinner, setspinner] = useState(false);
+  // const addinitialpost = (posts) => {
+  //   dispatch({
+  //     type: "ADD_INITIAL_POST",
+  //     payload: posts,
+  //   });
+  // };
   const addpost = (post) => {
     dispatch({
       type: "ADD_POST",
@@ -45,23 +45,25 @@ const PostListStoreProvider = ({ children }) => {
     },
     [dispatch],
   );
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    setspinner(true);
-    fetch("https://dummyjson.com/posts", { signal })
-      .then((res) => res.json())
-      .then((data) => {
-        addinitialpost(data.posts);
-        setspinner(false);
-      });
-    return () => {
-      controller.abort();
-      console.log("clean up called");
-    };
-  }, []);
+  // useEffect(() => {
+  //   const controller = new AbortController();
+  //   const signal = controller.signal;
+  //   setspinner(true);
+  //   fetch("https://dummyjson.com/posts", { signal })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       addinitialpost(data.posts);
+  //       setspinner(false);
+  //     });
+  //   return () => {
+  //     controller.abort();
+  //     console.log("clean up called");
+  //   };
+  // }, []);
   return (
-    <PostListStore.Provider value={{ postlist, deletepost, addpost, spinner }}>
+    <PostListStore.Provider
+      value={{ postlist, deletepost, addpost /* spinner */ }}
+    >
       {children}
     </PostListStore.Provider>
   );
