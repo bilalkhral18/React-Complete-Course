@@ -1,5 +1,12 @@
 import styles from "./InputContainer.module.css";
-function InputContainer() {
-  return <input type="number" placeholder="Enter any value to add subtract" />;
+function InputContainer({ ref }) {
+  return (
+    <input
+      type="number"
+      placeholder="Enter Number"
+      className={styles.input_container}
+      ref={ref}
+    />
+  );
 }
 export default InputContainer;

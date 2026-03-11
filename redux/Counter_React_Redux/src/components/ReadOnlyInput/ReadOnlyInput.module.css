@@ -1,3 +1,14 @@
 .display_container {
-  border: 1px solid red;
+  border: none;
+  outline: none;
+  width: 30%;
+  height: 15%;
+  border-radius: 10px;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  box-shadow:
+    5px 4px 8px 0 rgba(255, 254, 254, 0.2),
+    5px 6px 20px 0 rgba(247, 245, 245, 0.19);
+  /* background-color: transparent; */
 }
