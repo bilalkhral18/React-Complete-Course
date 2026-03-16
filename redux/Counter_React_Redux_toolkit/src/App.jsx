@@ -6,7 +6,7 @@ import Buttons from "./components/Buttons";
 import { useSelector } from "react-redux";
 import HideMessage from "./components/HideMessage";
 function App() {
-  const privacy_Toggle = useSelector((store) => store.privacy_Toggle);
+  const privacy_Toggle = useSelector((store) => store.privacyToggle);
   return (
     <div className="app-container">
       <Heading />

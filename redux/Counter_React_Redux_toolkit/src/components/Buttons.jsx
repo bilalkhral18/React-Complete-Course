@@ -1,31 +1,31 @@
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
-
+import { counterActions } from "../store/counter";
 import InputContainer from "../components/InputContainer/InputContainer";
-
+import { privacyToggleActions } from "../store/privacy";
 function Buttons() {
   const dispatch = useDispatch();
   let numberEl = useRef();
   const handlePrivacyToggle = () => {
-    dispatch({ type: "PRIVACY_TOGGLE" });
+    dispatch(privacyToggleActions.toggleVal());
   };
   const handleIncrement = () => {
-    dispatch({ type: "INCREMENT" });
+    dispatch(counterActions.increment());
   };
 
   const handleDecrement = () => {
-    dispatch({ type: "DECREMENT" });
+    dispatch(counterActions.decrement());
   };
 
   const handleAddition = () => {
     const number = Number(numberEl.current.value);
-    dispatch({ type: "ADDITION", payload: { number } });
+    dispatch(counterActions.add(number));
     numberEl.current.value = "";
   };
 
   const handleSubtraction = () => {
     const number = Number(numberEl.current.value);
-    dispatch({ type: "SUBTRACTION", payload: { number } });
+    dispatch(counterActions.subtract(number));
     numberEl.current.value = "";
   };
 
