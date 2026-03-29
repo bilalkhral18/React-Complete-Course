@@ -1,6 +1,5 @@
 import BagItems from "../components/BagItems";
 import BagSummary from "../components/BagSummary";
-// import { item } from "./Home";
 const Bag = () => {
   const item = {
     id: "001",
@@ -19,7 +18,7 @@ const Bag = () => {
   };
   return (
     <main>
-      <div class="bag-page">
+      <div className="bag-page">
         <BagItems item={item} />
         <BagSummary />
       </div>
