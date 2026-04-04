@@ -1,7 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { bagSliceActions } from "../store/bagSlice";
+import { IoMdAddCircle } from "react-icons/io";
+import { RiDeleteBin3Fill } from "react-icons/ri";
 const HomeItem = ({ item }) => {
   const dispatch = useDispatch();
+  const bag = useSelector((store) => store.bag);
   const handleAddToBag = () => {
     dispatch(bagSliceActions.addToBag(item.id));
   };
@@ -21,17 +24,20 @@ const HomeItem = ({ item }) => {
         <span className="original-price">Rs {item.original_price}</span>
         <span className="discount">({item.discount_percentage}% OFF)</span>
       </div>
-      <button className="btn-add-bag" onClick={handleAddToBag}>
-        Add to Bag
-      </button>
-      <button
-        onClick={handleRemoveFromBag}
-        type="button"
-        class="btn-add-bag btn btn-danger"
-        style={{ backgroundColor: "red" }}
-      >
-        remove
-      </button>
+      {bag.includes(item.id) ? (
+        <button
+          onClick={handleRemoveFromBag}
+          type="button"
+          class="btn-add-bag"
+          style={{ backgroundColor: "#ba1111", color: "white" }}
+        >
+          <RiDeleteBin3Fill className="addRemoveItems" /> Remove
+        </button>
+      ) : (
+        <button className="btn-add-bag" onClick={handleAddToBag}>
+          <IoMdAddCircle className="addRemoveItems" /> Add to Bag
+        </button>
+      )}
     </div>
   );
 };

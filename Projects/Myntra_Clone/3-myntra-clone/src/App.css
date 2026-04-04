@@ -393,3 +393,6 @@ a.action_container:link {
   display: flex;
   justify-content: center;
 }
+.addRemoveItems {
+  margin-bottom: 2px;
+}

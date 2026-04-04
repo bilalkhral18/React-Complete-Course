@@ -2,7 +2,6 @@ import HomeItem from "../components/HomeItem";
 import { useSelector } from "react-redux";
 const Home = () => {
   const items = useSelector((store) => store.items);
-  // const
   return (
     <main>
       <div className="items-container">
